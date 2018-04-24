@@ -40,3 +40,33 @@
  /**
   * 场景二：假定有一个注册页面，判断所有input内容的长度是否大于0
   */
+
+  function Field(value){
+      this.value = value;
+  }
+
+  Field.prototype.validate = function(){
+      return this.value.length > 0;
+  }
+
+  var username = new Field("tt");
+  var password = new Field("123456789");
+
+ // console.log(username.validate());         //true
+ // console.log(password.validate());         //true
+
+var fields = [username,password];
+
+var formValid = fields.every(function(field){
+    return field.validate();
+})
+
+//console.log(formValid);                      //true
+
+if(formValid){
+    //注册成功！
+
+}else{
+    //给用户提醒
+    
+}
